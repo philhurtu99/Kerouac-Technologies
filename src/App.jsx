@@ -251,14 +251,6 @@ function Audience() {
           ))}
         </div>
         <a className="btn btn-signal" href="/agences">Voir l’offre de sous-traitance pour agences</a>
-        <div className="av">
-          <p className="eyebrow">Production audiovisuelle</p>
-          <p>
-            Formé en audiovisuel autant qu’en informatique, je comprends les besoins des studios et des
-            maisons de production : gestion et transfert de gros fichiers, stockage réseau, serveurs,
-            automatisation des flux de travail et outils internes.
-          </p>
-        </div>
       </div>
     </section>
   )
@@ -284,10 +276,10 @@ function Process() {
         <div className="about">
           <div>
             <p className="eyebrow">Qui est derrière</p>
-            <h3 className="about-title">Philippe Clément, développeur et technicien audiovisuel</h3>
+            <h3 className="about-title">Philippe Clément, développeur web</h3>
             <p>
-              Kerouac Technologies, c’est une seule personne, et c’est celle qui fait le travail. Formé en
-              développement d’applications web et en technique audiovisuelle, j’ai aussi géré une équipe
+              Kerouac Technologies, c’est une seule personne, et c’est celle qui fait le travail. Diplômé en
+              développement d’applications web, avec de l’expérience en soutien technique, j’ai aussi géré une équipe
               en commerce de détail pendant quatre ans : je sais expliquer un problème technique sans jargon
               et respecter un échéancier.
             </p>
