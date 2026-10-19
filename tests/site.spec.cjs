@@ -39,3 +39,19 @@ test('contact form builds a prefilled email', async ({ page }) => {
   expect(mailto).toContain('mailto:')
   expect(decodeURIComponent(mailto)).toContain('Marie Tremblay')
 })
+
+test('agency page presents subcontracting plans', async ({ page }) => {
+  await page.goto('/agences')
+  await expect(page).toHaveTitle(/Sous-traitance pour agences/)
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Un développeur de plus')
+  await expect(page.locator('#formules')).toContainText('900 $')
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  expect(overflow).toBeLessThanOrEqual(0)
+})
+
+test('home links to the agency page', async ({ page, isMobile }) => {
+  await page.goto('/')
+  if (isMobile) await page.getByRole('button', { name: 'Menu' }).click()
+  await page.getByRole('navigation').getByRole('link', { name: 'Agences' }).click()
+  await expect(page).toHaveURL(/\/agences$/)
+})

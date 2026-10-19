@@ -80,7 +80,8 @@ export const packages = [
     price: '500 $',
     unit: '10 heures',
     description: 'Un renfort technique pour vos projets clients, utilisé au besoin, au rythme de votre agence.',
-    includes: ['Bogues, intégrations, maintenance', 'Suivi des heures détaillé', 'Travail en marque blanche']
+    includes: ['Bogues, intégrations, maintenance', 'Suivi des heures détaillé', 'Travail en marque blanche'],
+    link: { href: '/agences', label: 'Détails pour les agences' }
   },
   {
     title: 'Maintenance PME',

@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { audiences, contact, examples, packages, services, skills, steps } from './content.js'
+import Agences from './Agences.jsx'
 
 const nav = [
-  { href: '#services', label: 'Services' },
-  { href: '#tarifs', label: 'Tarifs' },
-  { href: '#exemples', label: 'Exemples' },
-  { href: '#clientele', label: 'Clientèle' },
-  { href: '#contact', label: 'Contact' }
+  { href: '/#services', label: 'Services' },
+  { href: '/#tarifs', label: 'Tarifs' },
+  { href: '/#exemples', label: 'Exemples' },
+  { href: '/agences', label: 'Agences' },
+  { href: '/#contact', label: 'Contact' }
 ]
 
 function Logo() {
   return (
-    <a className="logo" href="#top" aria-label="Kerouac Technologies, accueil">
+    <a className="logo" href="/" aria-label="Kerouac Technologies, accueil">
       <svg viewBox="0 0 40 40" aria-hidden="true">
         <rect x="1" y="1" width="38" height="38" rx="9" />
         <path d="M12 12v16M12 20l8-8M14.5 17.5L21 28M24 12h8M28 12v16" />
@@ -41,7 +42,7 @@ function Header() {
           {nav.map((item) => (
             <a key={item.href} href={item.href}>{item.label}</a>
           ))}
-          <a className="btn btn-small" href="#contact">Demander une soumission</a>
+          <a className="btn btn-small" href="/#contact">Demander une soumission</a>
         </nav>
       </div>
     </header>
@@ -148,6 +149,7 @@ function Pricing() {
               <ul className="checks">
                 {pack.includes.map((item) => <li key={item}>{item}</li>)}
               </ul>
+              {pack.link && <a className="card-link" href={pack.link.href}>{pack.link.label}</a>}
             </article>
           ))}
         </div>
@@ -215,6 +217,7 @@ function Audience() {
             </div>
           ))}
         </div>
+        <a className="btn btn-signal" href="/agences">Voir l’offre de sous-traitance pour agences</a>
         <div className="av">
           <p className="eyebrow">Production audiovisuelle</p>
           <p>
@@ -336,18 +339,25 @@ function Footer() {
 }
 
 export default function App() {
+  const isAgences = window.location.pathname.replace(/\/+$/, '') === '/agences'
   return (
     <>
-      <a className="skip" href="#services">Aller au contenu</a>
+      <a className="skip" href="#contenu">Aller au contenu</a>
       <Header />
-      <main>
-        <Hero />
-        <Services />
-        <Pricing />
-        <Examples />
-        <Audience />
-        <Process />
-        <Contact />
+      <main id="contenu">
+        {isAgences ? (
+          <Agences />
+        ) : (
+          <>
+            <Hero />
+            <Services />
+            <Pricing />
+            <Examples />
+            <Audience />
+            <Process />
+            <Contact />
+          </>
+        )}
       </main>
       <Footer />
     </>
