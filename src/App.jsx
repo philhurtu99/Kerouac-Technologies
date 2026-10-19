@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { audiences, contact, examples, packages, services, skills, steps } from './content.js'
+import { audiences, background, contact, examples, packages, projects, services, skillGroups, steps } from './content.js'
 import Agences from './Agences.jsx'
 import Confidentialite from './Confidentialite.jsx'
 
 const nav = [
   { href: '/#services', label: 'Services' },
   { href: '/#tarifs', label: 'Tarifs' },
-  { href: '/#exemples', label: 'Exemples' },
+  { href: '/#realisations', label: 'Réalisations' },
   { href: '/agences', label: 'Agences' },
   { href: '/#contact', label: 'Contact' }
 ]
@@ -198,6 +198,38 @@ function Examples() {
   )
 }
 
+function Projects() {
+  return (
+    <section className="section section-alt" id="realisations">
+      <div className="wrap">
+        <header className="section-head">
+          <p className="eyebrow">Réalisations</p>
+          <h2>Des projets livrés, du code en production.</h2>
+          <p>Quelques projets récents, du site WordPress à l’application complète avec paiements et suivi en temps réel.</p>
+        </header>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article className="card project" key={project.title}>
+              <p className="project-kind">{project.kind}</p>
+              <h3>{project.title}</h3>
+              <p className="project-summary">{project.summary}</p>
+              <ul className="checks">
+                {project.points.map((point) => <li key={point}>{point}</li>)}
+              </ul>
+              <ul className="stack">
+                {project.stack.map((tech) => <li key={tech}>{tech}</li>)}
+              </ul>
+              {project.url && (
+                <a className="card-link" href={project.url} rel="noopener noreferrer">{project.urlLabel} ↗</a>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Audience() {
   return (
     <section className="section section-dark" id="clientele">
@@ -252,15 +284,34 @@ function Process() {
         <div className="about">
           <div>
             <p className="eyebrow">Qui est derrière</p>
+            <h3 className="about-title">Philippe Clément, développeur et technicien audiovisuel</h3>
             <p>
-              Kerouac Technologies, c’est Philippe, diplômé d’une AEC en développement web, avec une
-              expérience pratique de Linux et de l’administration de serveurs. Vous parlez directement à la
-              personne qui fait le travail.
+              Kerouac Technologies, c’est une seule personne, et c’est celle qui fait le travail. Formé en
+              développement d’applications web et en technique audiovisuelle, j’ai aussi géré une équipe
+              en commerce de détail pendant quatre ans : je sais expliquer un problème technique sans jargon
+              et respecter un échéancier.
             </p>
+            <p className="about-lang">Services offerts en français et en anglais.</p>
+            <ol className="timeline">
+              {background.map((item) => (
+                <li key={item.title}>
+                  <span>{item.years}</span>
+                  <strong>{item.title}</strong>
+                  <em>{item.place}</em>
+                </li>
+              ))}
+            </ol>
           </div>
-          <ul className="skills">
-            {skills.map((skill) => <li key={skill}>{skill}</li>)}
-          </ul>
+          <div className="skill-groups">
+            {skillGroups.map((group) => (
+              <div key={group.title}>
+                <p className="skill-group-title">{group.title}</p>
+                <ul className="skills">
+                  {group.items.map((skill) => <li key={skill}>{skill}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -374,6 +425,7 @@ export default function App() {
             <Services />
             <Pricing />
             <Examples />
+            <Projects />
             <Audience />
             <Process />
             <Contact />

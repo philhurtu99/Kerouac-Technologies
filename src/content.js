@@ -130,3 +130,70 @@ export const steps = [
 ]
 
 export const skills = ['Linux', 'Python', 'C#', 'SQL', 'JavaScript', 'React', 'WordPress', 'Administration de serveurs', 'DNS et courriels', 'Docker']
+
+export const skillGroups = [
+  { title: 'Langages', items: ['C#', 'Python', 'JavaScript', 'TypeScript', 'SQL'] },
+  { title: 'Web', items: ['React', 'Angular', 'Node.js', 'Express', '.NET', 'FastAPI', 'WordPress'] },
+  { title: 'Données', items: ['PostgreSQL', 'TimescaleDB', 'SQL Server', 'Redis', 'Prisma'] },
+  { title: 'Systèmes', items: ['Linux', 'Docker', 'Cloudflare', 'DNS et courriels', 'Git', 'Azure DevOps'] }
+]
+
+export const projects = [
+  {
+    title: 'Plateforme de commande et de livraison',
+    kind: 'Application web complète',
+    url: 'https://monpetituber.app',
+    urlLabel: 'monpetituber.app',
+    summary:
+      'Commande en ligne de matériel scolaire, de la vitrine jusqu’à la livraison, avec une interface pour les employés.',
+    points: [
+      'Catalogue, panier, promotions, paiement Stripe et factures PDF',
+      'Connexion Google, double authentification par courriel ou texto',
+      'Interfaces admin et employé : inventaire, préparation, assignation des livreurs, suivi en temps réel',
+      'Tests automatisés du backend avec Jest'
+    ],
+    stack: ['React', 'TypeScript', 'Node.js', 'Express', 'Prisma', 'PostgreSQL', 'Stripe']
+  },
+  {
+    title: 'Plateforme de données financières',
+    kind: 'Mandat à contrat',
+    summary: 'Collecte et visualisation en temps réel de données de marchés financiers.',
+    points: [
+      'API backend et flux de données en direct par WebSocket',
+      'Stockage de séries temporelles et cache',
+      'Indicateurs techniques (SMA, EMA, RSI, MACD) et tableaux de bord'
+    ],
+    stack: ['FastAPI', 'Python', 'PostgreSQL', 'TimescaleDB', 'Redis', 'React']
+  },
+  {
+    title: 'Kerouac Productions',
+    kind: 'Boutique en ligne et serveur autohébergé',
+    url: 'https://kerouacproductions.studio',
+    urlLabel: 'kerouacproductions.studio',
+    summary: 'Le site de mon studio de musique, avec une boutique de plugins audio développés à l’interne.',
+    points: [
+      'Paiement Stripe, comptes clients et téléchargements sécurisés',
+      'Système de licences pour les plugins',
+      'Serveur Linux maison : Docker, sauvegardes chiffrées, déploiement automatique'
+    ],
+    stack: ['React', 'Express', 'PostgreSQL', 'Stripe', 'Docker', 'Linux']
+  },
+  {
+    title: 'Spectre Entertainment',
+    kind: 'Intégration WordPress et commerce en ligne',
+    summary: 'Intégration de contenu et gestion d’une boutique en ligne de matériel audiovisuel.',
+    points: [
+      'Gestion des produits, des commandes et de la base de données',
+      'Optimisation SEO pour améliorer le classement du site'
+    ],
+    stack: ['WordPress', 'WooCommerce', 'SEO']
+  }
+]
+
+export const background = [
+  { years: '2024 – 2026', title: 'AEC en développement d’applications web', place: 'Cégep Édouard-Montpetit' },
+  { years: '2026', title: 'Coordonnateur technique, production événementielle', place: 'Parlons Virtuel' },
+  { years: '2021 – 2025', title: 'Gérant, gestion d’équipe et service à la clientèle', place: 'Archambault' },
+  { years: 'Depuis 2019', title: 'Propriétaire et ingénieur audio', place: 'Kerouac Productions' },
+  { years: '2018 – 2019', title: 'AEC en technique audiovisuelle', place: 'Musitechnic' }
+]
