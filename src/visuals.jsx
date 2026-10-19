@@ -52,30 +52,6 @@ export function Icon({ name, size = 24 }) {
 }
 
 // Illustrations abstraites pour les projets sans capture publique.
-function ShopMock() {
-  return (
-    <div className="mock mock-shop" aria-hidden="true">
-      <div className="mock-bar"><span /><span /><span /></div>
-      <div className="mock-shop-body">
-        <div className="mock-products">
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <div className="mock-product" key={i}>
-              <i />
-              <b />
-              <em />
-            </div>
-          ))}
-        </div>
-        <div className="mock-cart">
-          <b />
-          <i /><i /><i />
-          <span>Payer</span>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function ChartMock() {
   return (
     <div className="mock mock-chart" aria-hidden="true">
@@ -110,7 +86,7 @@ function WordpressMock() {
   )
 }
 
-const mocks = { shop: ShopMock, chart: ChartMock, wordpress: WordpressMock }
+const mocks = { chart: ChartMock, wordpress: WordpressMock }
 
 export function ProjectVisual({ project }) {
   if (project.image) {

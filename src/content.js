@@ -29,9 +29,19 @@ export const projects = [
     featured: true
   },
   {
-    title: 'Plateforme de commande et livraison',
-    tag: 'Application web complète',
-    mock: 'shop',
+    title: 'Itsgenygarts',
+    tag: 'Boutique en ligne · crochet fait main',
+    image: '/images/itsgenygarts.webp',
+    url: 'https://itsgenygarts.com',
+    urlLabel: 'itsgenygarts.com',
+    stack: ['Catalogue', 'Panier', 'Liste de souhaits', 'Sur mesure'],
+    featured: true,
+    reverse: true
+  },
+  {
+    title: 'MonPetitUber',
+    tag: 'Commande et livraison sur le campus',
+    image: '/images/monpetituber.webp',
     url: 'https://monpetituber.app',
     urlLabel: 'monpetituber.app',
     stack: ['React', 'TypeScript', 'Prisma', 'Stripe']

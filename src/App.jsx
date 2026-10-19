@@ -112,7 +112,7 @@ function Projects() {
         </header>
         <div className="project-grid">
           {projects.map((project) => (
-            <article className={project.featured ? 'project featured' : 'project'} key={project.title}>
+            <article className={['project', project.featured && 'featured', project.reverse && 'reverse'].filter(Boolean).join(' ')} key={project.title}>
               <ProjectVisual project={project} />
               <div className="project-info">
                 <p className="project-tag">{project.tag}</p>

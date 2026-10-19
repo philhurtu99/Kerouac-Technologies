@@ -669,6 +669,14 @@ a {
   gap: 6px;
 }
 
+.project.featured.reverse {
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.project.featured.reverse .shot {
+  order: 2;
+}
+
 .project.featured .project-info {
   justify-content: center;
   padding: 36px;
@@ -735,82 +743,6 @@ a {
 
 .mock {
   background: linear-gradient(135deg, #e9eef5, #dfe7e2);
-}
-
-.mock-shop-body {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 34%;
-  gap: 14px;
-  padding: 16px;
-}
-
-.mock-products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.mock-product {
-  background: var(--surface);
-  border-radius: 8px;
-  padding: 8px;
-  display: grid;
-  gap: 6px;
-  align-content: start;
-}
-
-.mock-product i {
-  height: 38px;
-  border-radius: 6px;
-  background: #cfe9dc;
-}
-
-.mock-product b {
-  height: 6px;
-  width: 80%;
-  border-radius: 3px;
-  background: var(--line);
-}
-
-.mock-product em {
-  height: 6px;
-  width: 40%;
-  border-radius: 3px;
-  background: var(--signal-ink);
-  opacity: 0.6;
-}
-
-.mock-cart {
-  background: var(--navy);
-  border-radius: 10px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.mock-cart b {
-  height: 8px;
-  width: 50%;
-  border-radius: 3px;
-  background: #fff;
-}
-
-.mock-cart i {
-  height: 6px;
-  border-radius: 3px;
-  background: #33465f;
-}
-
-.mock-cart span {
-  margin-top: auto;
-  text-align: center;
-  font: 600 0.7rem var(--font-body);
-  color: var(--navy);
-  background: var(--signal);
-  border-radius: 999px;
-  padding: 5px;
 }
 
 .mock-chart {
@@ -1473,6 +1405,14 @@ a {
 
   .project.featured .shot {
     aspect-ratio: 16 / 10;
+  }
+
+  .project.featured.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .project.featured.reverse .shot {
+    order: 0;
   }
 
   .project.featured .project-info {
