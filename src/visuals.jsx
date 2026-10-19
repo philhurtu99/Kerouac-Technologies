@@ -51,53 +51,13 @@ export function Icon({ name, size = 24 }) {
   return <Component size={size} strokeWidth={1.75} aria-hidden="true" />
 }
 
-// Illustrations abstraites pour les projets sans capture publique.
-function FlowMock() {
-  const stages = ['leads.csv', 'Analyse', 'Brouillon', 'Envoi']
-  return (
-    <div className="mock mock-flow" aria-hidden="true">
-      <div className="mock-bar"><span /><span /><span /></div>
-      <div className="mock-flow-body">
-        <ol className="flow-steps">
-          {stages.map((stage, i) => <li key={stage}><em>{i + 1}</em>{stage}</li>)}
-        </ol>
-        <div className="flow-mail">
-          <b />
-          <i /><i /><i className="short" />
-          <span>✓ brouillons prêts à envoyer</span>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function WordpressMock() {
-  return (
-    <div className="mock mock-wp" aria-hidden="true">
-      <div className="mock-bar"><span /><span /><span /></div>
-      <div className="mock-wp-body">
-        <div className="mock-wp-hero"><b /><i /></div>
-        <div className="mock-wp-grid">
-          {[0, 1, 2].map((i) => <div key={i}><i /><b /></div>)}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const mocks = { flow: FlowMock, wordpress: WordpressMock }
-
 export function ProjectVisual({ project }) {
-  if (project.image) {
-    return (
-      <div className="shot">
-        <div className="mock-bar"><span /><span /><span /></div>
-        <img src={project.image} alt={`Capture d’écran : ${project.title}`} loading="lazy" />
-      </div>
-    )
-  }
-  const Mock = mocks[project.mock]
-  return <Mock />
+  return (
+    <div className="shot">
+      <div className="mock-bar"><span /><span /><span /></div>
+      <img src={project.image} alt={`Capture d’écran : ${project.title}`} loading="lazy" />
+    </div>
+  )
 }
 
 export function HeroVisual() {

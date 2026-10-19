@@ -55,7 +55,7 @@ export const projects = [
   {
     title: 'Courriels de prospection automatisés',
     tag: 'Automatisation · Python',
-    mock: 'flow',
+    image: '/images/email-automation.webp',
     stack: ['Python', 'CSV', 'IA', 'Web scraping']
   },
   {
@@ -73,7 +73,9 @@ export const projects = [
   {
     title: 'Spectre Entertainment',
     tag: 'WordPress · boutique en ligne',
-    mock: 'wordpress',
+    image: '/images/spectre.webp',
+    url: 'https://boutique.spectre-entertainment.com',
+    urlLabel: 'boutique.spectre-entertainment.com',
     stack: ['WordPress', 'WooCommerce', 'SEO']
   }
 ]
