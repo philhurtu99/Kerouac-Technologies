@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { audiences, contact, examples, packages, services, skills, steps } from './content.js'
 import Agences from './Agences.jsx'
+import Confidentialite from './Confidentialite.jsx'
 
 const nav = [
   { href: '/#services', label: 'Services' },
@@ -319,7 +320,10 @@ function Contact() {
             <textarea required rows="5" value={form.message} onChange={update('message')} />
           </label>
           <button className="btn" type="submit">Envoyer ma demande</button>
-          <p className="fine">Le bouton ouvre votre logiciel de courriel avec la demande déjà remplie.</p>
+          <p className="fine">
+            Le bouton ouvre votre logiciel de courriel avec la demande déjà remplie. Voir la{' '}
+            <a href="/confidentialite">politique de confidentialité</a>.
+          </p>
         </form>
       </div>
     </section>
@@ -329,24 +333,41 @@ function Contact() {
 function Footer() {
   return (
     <footer className="footer">
-      <div className="wrap footer-inner">
-        <Logo />
-        <p>Développement web · Automatisation · Soutien informatique</p>
+      <div className="wrap footer-grid">
+        <div>
+          <Logo />
+          <p className="footer-tagline">Développement web · Automatisation · Soutien informatique</p>
+        </div>
+        <nav aria-label="Pied de page">
+          <a href="/#services">Services</a>
+          <a href="/#tarifs">Tarifs</a>
+          <a href="/agences">Agences</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div className="footer-contact">
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <span>{contact.region}</span>
+        </div>
+      </div>
+      <div className="wrap footer-bottom">
         <p>© {new Date().getFullYear()} Kerouac Technologies</p>
+        <a href="/confidentialite">Politique de confidentialité</a>
       </div>
     </footer>
   )
 }
 
 export default function App() {
-  const isAgences = window.location.pathname.replace(/\/+$/, '') === '/agences'
+  const path = window.location.pathname.replace(/\/+$/, '')
   return (
     <>
       <a className="skip" href="#contenu">Aller au contenu</a>
       <Header />
       <main id="contenu">
-        {isAgences ? (
+        {path === '/agences' ? (
           <Agences />
+        ) : path === '/confidentialite' ? (
+          <Confidentialite />
         ) : (
           <>
             <Hero />

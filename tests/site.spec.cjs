@@ -19,7 +19,7 @@ test('page never scrolls sideways', async ({ page }) => {
 test('navigation reaches the contact form', async ({ page, isMobile }) => {
   await page.goto('/')
   if (isMobile) await page.getByRole('button', { name: 'Menu' }).click()
-  await page.getByRole('navigation').getByRole('link', { name: 'Contact' }).click()
+  await page.getByRole('banner').getByRole('link', { name: 'Contact' }).click()
   await expect(page.getByRole('heading', { name: 'Parlez-moi de votre projet.' })).toBeInViewport()
 })
 
@@ -52,6 +52,25 @@ test('agency page presents subcontracting plans', async ({ page }) => {
 test('home links to the agency page', async ({ page, isMobile }) => {
   await page.goto('/')
   if (isMobile) await page.getByRole('button', { name: 'Menu' }).click()
-  await page.getByRole('navigation').getByRole('link', { name: 'Agences' }).click()
+  await page.getByRole('banner').getByRole('link', { name: 'Agences' }).click()
   await expect(page).toHaveURL(/\/agences$/)
+})
+
+test('privacy policy is linked from the footer', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('contentinfo').getByRole('link', { name: 'Politique de confidentialité' }).click()
+  await expect(page).toHaveURL(/\/confidentialite$/)
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Vos renseignements personnels')
+  await expect(page.getByText('Commission d’accès à l’information du Québec')).toBeVisible()
+})
+
+test('site loads no third-party resources', async ({ page }) => {
+  const external = []
+  page.on('request', (r) => {
+    const url = new URL(r.url())
+    if (!['127.0.0.1', 'localhost'].includes(url.hostname) && url.protocol.startsWith('http')) external.push(r.url())
+  })
+  await page.goto('/')
+  await page.waitForLoadState('networkidle')
+  expect(external).toEqual([])
 })
