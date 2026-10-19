@@ -22,15 +22,16 @@ est dans [`src/content.js`](./src/content.js).
 
 Domaine : `kerouactechnologies.ca`, enregistré chez Cloudflare.
 
-### Option recommandée : Cloudflare Pages
+### Option recommandée : Cloudflare Workers (fichiers statiques)
 
 Aucun serveur à gérer, et chaque push sur `main` met le site à jour.
+La configuration est dans [`wrangler.jsonc`](./wrangler.jsonc).
 
-1. Cloudflare → Compute → Workers & Pages → Create → Pages → Connect to Git,
-   puis choisir `philhurtu99/kerouac-technologies`.
-2. Framework preset : Vite. Build command : `npm run build`. Output : `dist`.
-3. Une fois déployé : Custom domains → `kerouactechnologies.ca` (ajouter aussi
-   `www.kerouactechnologies.ca`).
+1. Cloudflare → Compute → Workers & Pages → Create → Import a repository,
+   puis choisir `philhurtu99/Kerouac-Technologies`.
+2. Build command : `npm run build`. Deploy command : `npx wrangler deploy`.
+3. Une fois déployé : Settings → Domains & Routes → Add → Custom domain →
+   `kerouactechnologies.ca` (ajouter aussi `www.kerouactechnologies.ca`).
 
 Les en-têtes de sécurité et de cache sont dans [`public/_headers`](./public/_headers).
 
