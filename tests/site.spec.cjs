@@ -1,0 +1,41 @@
+const { test, expect } = require('@playwright/test')
+
+test('home page presents the offer in French', async ({ page }) => {
+  await page.goto('/')
+  await expect(page).toHaveTitle(/Kerouac Technologies/)
+  await expect(page.locator('html')).toHaveAttribute('lang', 'fr-CA')
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Renfort informatique à distance')
+  for (const id of ['services', 'tarifs', 'exemples', 'clientele', 'demarche', 'contact']) {
+    await expect(page.locator(`#${id}`)).toBeVisible()
+  }
+})
+
+test('page never scrolls sideways', async ({ page }) => {
+  await page.goto('/')
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  expect(overflow).toBeLessThanOrEqual(0)
+})
+
+test('navigation reaches the contact form', async ({ page, isMobile }) => {
+  await page.goto('/')
+  if (isMobile) await page.getByRole('button', { name: 'Menu' }).click()
+  await page.getByRole('navigation').getByRole('link', { name: 'Contact' }).click()
+  await expect(page.getByRole('heading', { name: 'Parlez-moi de votre projet.' })).toBeInViewport()
+})
+
+test('contact form builds a prefilled email', async ({ page }) => {
+  await page.goto('/#contact')
+  await page.evaluate(() => {
+    window.__mailto = null
+    Object.defineProperty(window, 'location', { value: { set href(v) { window.__mailto = v } }, configurable: true })
+  }).catch(() => {})
+  await page.getByLabel('Nom').fill('Marie Tremblay')
+  await page.getByLabel('Votre besoin').fill('Mon formulaire ne fonctionne plus.')
+  const [request] = await Promise.all([
+    page.waitForEvent('request', (r) => r.url().startsWith('mailto:')).catch(() => null),
+    page.getByRole('button', { name: 'Envoyer ma demande' }).click()
+  ])
+  const mailto = request ? request.url() : await page.evaluate(() => window.__mailto)
+  expect(mailto).toContain('mailto:')
+  expect(decodeURIComponent(mailto)).toContain('Marie Tremblay')
+})
