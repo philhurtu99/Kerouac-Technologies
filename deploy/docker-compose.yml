@@ -16,3 +16,9 @@ services:
       - /tmp:size=16m
     ports:
       - "127.0.0.1:4343:8080"
+    networks:
+      - kerouac-public
+
+networks:
+  kerouac-public:
+    external: true

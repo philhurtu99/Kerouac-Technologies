@@ -20,12 +20,34 @@ est dans [`src/content.js`](./src/content.js).
 
 ## Déploiement
 
+Domaine : `kerouactechnologies.ca`, enregistré chez Cloudflare.
+
+### Option recommandée : Cloudflare Pages
+
+Aucun serveur à gérer, et chaque push sur `main` met le site à jour.
+
+1. Cloudflare → Compute → Workers & Pages → Create → Pages → Connect to Git,
+   puis choisir `philhurtu99/kerouac-technologies`.
+2. Framework preset : Vite. Build command : `npm run build`. Output : `dist`.
+3. Une fois déployé : Custom domains → `kerouactechnologies.ca` (ajouter aussi
+   `www.kerouactechnologies.ca`).
+
+Les en-têtes de sécurité et de cache sont dans [`public/_headers`](./public/_headers).
+
+### Option serveur maison (même tunnel que Kerouac Productions)
+
 L'image Docker construit le site et le sert avec nginx (non root, système de
-fichiers en lecture seule). Sur le serveur :
+fichiers en lecture seule), sur le réseau `kerouac-public` du tunnel Cloudflare :
 
 ```bash
 bash deploy/deploy-server.sh
 ```
 
-Le site répond sur `127.0.0.1:4343`, à relier au domaine par le proxy inverse du
-serveur, à côté de Kerouac Productions (`127.0.0.1:4242`).
+Ajouter ensuite au tunnel un nom d'hôte public `kerouactechnologies.ca` qui pointe
+vers `http://kerouac-technologies-site:8080`.
+
+### Courriel
+
+Cloudflare → kerouactechnologies.ca → Email → Email Routing : créer
+`contact@kerouactechnologies.ca` et le rediriger vers ta boîte personnelle. C'est
+l'adresse qu'utilisent le site et le formulaire.
