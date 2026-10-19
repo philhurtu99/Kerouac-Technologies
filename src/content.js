@@ -49,7 +49,7 @@ export const projects = [
   {
     title: 'Données financières en temps réel',
     tag: 'Mandat à contrat',
-    mock: 'chart',
+    image: '/images/trading-platform.webp',
     stack: ['FastAPI', 'TimescaleDB', 'WebSocket', 'React']
   },
   {

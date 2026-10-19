@@ -52,26 +52,6 @@ export function Icon({ name, size = 24 }) {
 }
 
 // Illustrations abstraites pour les projets sans capture publique.
-function ChartMock() {
-  return (
-    <div className="mock mock-chart" aria-hidden="true">
-      <div className="mock-bar"><span /><span /><span /></div>
-      <div className="mock-chart-body">
-        <div className="mock-kpis">
-          <div><em>RSI</em><b>58,2</b></div>
-          <div><em>EMA</em><b>+1,4 %</b></div>
-          <div><em>Flux</em><b className="live">en direct</b></div>
-        </div>
-        <svg viewBox="0 0 300 110" preserveAspectRatio="none">
-          <polyline className="area" points="0,110 0,80 25,72 50,78 75,60 100,64 125,48 150,55 175,40 200,46 225,30 250,36 275,20 300,24 300,110" />
-          <polyline className="line" points="0,80 25,72 50,78 75,60 100,64 125,48 150,55 175,40 200,46 225,30 250,36 275,20 300,24" />
-          <polyline className="line2" points="0,86 50,80 100,70 150,62 200,52 250,42 300,34" />
-        </svg>
-      </div>
-    </div>
-  )
-}
-
 function FlowMock() {
   const stages = ['leads.csv', 'Analyse', 'Brouillon', 'Envoi']
   return (
@@ -105,7 +85,7 @@ function WordpressMock() {
   )
 }
 
-const mocks = { chart: ChartMock, flow: FlowMock, wordpress: WordpressMock }
+const mocks = { flow: FlowMock, wordpress: WordpressMock }
 
 export function ProjectVisual({ project }) {
   if (project.image) {
