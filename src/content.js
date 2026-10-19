@@ -59,13 +59,13 @@ export const projects = [
     stack: ['Python', 'CSV', 'IA', 'Web scraping']
   },
   {
-    title: 'Lazy Music',
+    title: 'Lazy Music - lecteur de musique autohebergé',
     tag: 'Plugin Linux · lecteur de musique',
     image: '/images/lazy-music.webp',
     stack: ['Python', 'QML', 'mpv', 'API Subsonic']
   },
   {
-    title: 'Plugin Bayan Accordion',
+    title: 'Plugin de musique - Bayan Accordion',
     tag: 'Logiciel · C++',
     image: '/images/bayan-accordion.webp',
     stack: ['C++', 'JUCE', 'CMake']
