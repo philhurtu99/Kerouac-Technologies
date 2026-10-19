@@ -4,15 +4,15 @@ test('home page presents the offer in French', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveTitle(/Kerouac Technologies/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr-CA')
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Renfort informatique à distance')
-  for (const id of ['services', 'tarifs', 'exemples', 'clientele', 'demarche', 'contact']) {
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Renfort informatique')
+  for (const id of ['services', 'realisations', 'tarifs', 'clientele', 'demarche', 'contact']) {
     await expect(page.locator(`#${id}`)).toBeVisible()
   }
 })
 
 test('page never scrolls sideways', async ({ page }) => {
   await page.goto('/')
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
   expect(overflow).toBeLessThanOrEqual(0)
 })
 
@@ -45,7 +45,7 @@ test('agency page presents subcontracting plans', async ({ page }) => {
   await expect(page).toHaveTitle(/Sous-traitance pour agences/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Un développeur de plus')
   await expect(page.locator('#formules')).toContainText('900 $')
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
   expect(overflow).toBeLessThanOrEqual(0)
 })
 

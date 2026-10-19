@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import { audiences, background, contact, examples, packages, projects, services, skillGroups, steps } from './content.js'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { audiences, contact, packages, projects, services, skills, steps } from './content.js'
+import { HeroVisual, Icon, ProjectVisual } from './visuals.jsx'
 import Agences from './Agences.jsx'
 import Confidentialite from './Confidentialite.jsx'
 
 const nav = [
   { href: '/#services', label: 'Services' },
-  { href: '/#tarifs', label: 'Tarifs' },
   { href: '/#realisations', label: 'Réalisations' },
+  { href: '/#tarifs', label: 'Tarifs' },
   { href: '/agences', label: 'Agences' },
   { href: '/#contact', label: 'Contact' }
 ]
@@ -55,42 +57,23 @@ function Hero() {
     <section className="hero" id="top">
       <div className="wrap hero-grid">
         <div>
-          <p className="eyebrow">Solutions informatiques pour entreprises et professionnels</p>
-          <h1>Renfort informatique à distance pour agences web et PME.</h1>
-          <p className="lead">
-            Développement, maintenance, automatisation et dépannage. Kerouac Technologies accompagne les
-            entreprises et les professionnels dans le développement, la maintenance et l’optimisation de
-            leurs outils informatiques.
-          </p>
+          <p className="eyebrow">Services informatiques à distance</p>
+          <h1>Renfort informatique pour agences web et PME.</h1>
+          <p className="lead">Développement web, automatisation et soutien technique, partout au Québec.</p>
           <div className="hero-actions">
-            <a className="btn" href="#contact">Décrire mon besoin</a>
-            <a className="btn btn-ghost" href="#tarifs">Voir les tarifs</a>
+            <a className="btn" href="#contact">Décrire mon besoin <ArrowRight size={18} /></a>
+            <a className="btn btn-ghost" href="#realisations">Voir mes projets</a>
           </div>
-          <ul className="hero-facts">
-            <li>Interventions à distance partout au Québec</li>
-            <li>Estimation gratuite avant chaque mandat</li>
-            <li>Mandats ponctuels ou récurrents</li>
-          </ul>
         </div>
-        <div className="console" aria-hidden="true">
-          <div className="console-bar">
-            <span /><span /><span />
-            <em>mandat-0142</em>
-          </div>
-          <pre>
-{`$ diagnostic --site client.ca
-  ✓ DNS               ok
-  ✓ certificat SSL    valide
-  ✗ formulaire        erreur 500
-$ corriger formulaire
-  ✓ courriel SMTP reconfiguré
-  ✓ soumission test   reçue
-$ automatiser rapport-hebdo.xlsx
-  ✓ 3 fichiers fusionnés en 2 s
-`}
-            <span className="caret">█</span>
-          </pre>
-        </div>
+        <HeroVisual />
+      </div>
+      <div className="wrap">
+        <ul className="stats">
+          <li><strong>4</strong><span>services</span></li>
+          <li><strong>100 %</strong><span>à distance</span></li>
+          <li><strong>dès 45 $</strong><span>de l’heure</span></li>
+          <li><strong>FR · EN</strong><span>bilingue</span></li>
+        </ul>
       </div>
     </section>
   )
@@ -100,96 +83,17 @@ function Services() {
   return (
     <section className="section" id="services">
       <div className="wrap">
-        <header className="section-head">
+        <header className="section-head center">
           <p className="eyebrow">Services</p>
-          <h2>Une offre assez large pour vos besoins, assez précise pour être efficace.</h2>
+          <h2>Ce que je fais pour vous.</h2>
         </header>
         <div className="service-grid">
           {services.map((service) => (
-            <article className="card service" key={service.id}>
-              <div className="service-top">
-                <span className="code">{service.code}</span>
-                <span className="rate">à partir de <strong>{service.rate} $/h</strong></span>
-              </div>
+            <article className="tile" key={service.id}>
+              <span className="tile-icon"><Icon name={service.icon} size={28} /></span>
               <h3>{service.title}</h3>
-              <p>{service.summary}</p>
-              <ul className="checks">
-                {service.items.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Pricing() {
-  return (
-    <section className="section section-alt" id="tarifs">
-      <div className="wrap">
-        <header className="section-head">
-          <p className="eyebrow">Tarifs</p>
-          <h2>À l’heure ou à prix fixe, selon ce qui vous convient.</h2>
-          <p>
-            Les petits mandats bien définis ont un prix fixe connu d’avance. Les projets ouverts et la
-            sous-traitance sont facturés à l’heure, avec un suivi détaillé.
-          </p>
-        </header>
-        <div className="package-grid">
-          {packages.map((pack) => (
-            <article className={pack.featured ? 'card package featured' : 'card package'} key={pack.title}>
-              {pack.featured && <span className="badge">Le plus demandé</span>}
-              <h3>{pack.title}</h3>
-              <p className="price">
-                <span className="from">à partir de</span>
-                <strong>{pack.price}</strong>
-                <span className="unit">{pack.unit}</span>
-              </p>
-              <p>{pack.description}</p>
-              <ul className="checks">
-                {pack.includes.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-              {pack.link && <a className="card-link" href={pack.link.href}>{pack.link.label}</a>}
-            </article>
-          ))}
-        </div>
-        <div className="rates">
-          <h3>Taux horaires de lancement</h3>
-          <dl>
-            {services.map((service) => (
-              <div key={service.id}>
-                <dt>{service.title}</dt>
-                <dd>dès {service.rate} $/h</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="fine">
-            Prix en dollars canadiens, avant taxes applicables. Les forfaits mensuels précisent les
-            interventions incluses ; le temps additionnel est facturé au taux horaire.
-          </p>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Examples() {
-  return (
-    <section className="section" id="exemples">
-      <div className="wrap">
-        <header className="section-head">
-          <p className="eyebrow">Exemples de mandats</p>
-          <h2>Des problèmes concrets, réglés à distance.</h2>
-          <p>Trois mandats types, pour donner une idée de ce qui est possible et de ce que ça coûte.</p>
-        </header>
-        <div className="example-grid">
-          {examples.map((example) => (
-            <article className="card example" key={example.client}>
-              <p className="example-client">{example.client}</p>
-              <p><span className="label">Le besoin</span>{example.problem}</p>
-              <p><span className="label">La solution</span>{example.solution}</p>
-              <p className="example-price">{example.price}</p>
+              <p>{service.line}</p>
+              <span className="tile-rate">dès {service.rate} $/h</span>
             </article>
           ))}
         </div>
@@ -202,29 +106,58 @@ function Projects() {
   return (
     <section className="section section-alt" id="realisations">
       <div className="wrap">
-        <header className="section-head">
+        <header className="section-head center">
           <p className="eyebrow">Réalisations</p>
-          <h2>Des projets livrés, du code en production.</h2>
-          <p>Quelques projets récents, du site WordPress à l’application complète avec paiements et suivi en temps réel.</p>
+          <h2>Des projets livrés.</h2>
         </header>
         <div className="project-grid">
           {projects.map((project) => (
-            <article className="card project" key={project.title}>
-              <p className="project-kind">{project.kind}</p>
-              <h3>{project.title}</h3>
-              <p className="project-summary">{project.summary}</p>
-              <ul className="checks">
-                {project.points.map((point) => <li key={point}>{point}</li>)}
-              </ul>
-              <ul className="stack">
-                {project.stack.map((tech) => <li key={tech}>{tech}</li>)}
-              </ul>
-              {project.url && (
-                <a className="card-link" href={project.url} rel="noopener noreferrer">{project.urlLabel} ↗</a>
-              )}
+            <article className={project.featured ? 'project featured' : 'project'} key={project.title}>
+              <ProjectVisual project={project} />
+              <div className="project-info">
+                <p className="project-tag">{project.tag}</p>
+                <h3>{project.title}</h3>
+                <ul className="stack">
+                  {project.stack.map((tech) => <li key={tech}>{tech}</li>)}
+                </ul>
+                {project.url && (
+                  <a className="card-link" href={project.url} rel="noopener noreferrer">
+                    {project.urlLabel} <ArrowUpRight size={16} />
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+function Pricing() {
+  return (
+    <section className="section" id="tarifs">
+      <div className="wrap">
+        <header className="section-head center">
+          <p className="eyebrow">Tarifs</p>
+          <h2>À l’heure ou à prix fixe.</h2>
+        </header>
+        <div className="package-grid">
+          {packages.map((pack) => (
+            <article className={pack.featured ? 'card package featured' : 'card package'} key={pack.title}>
+              {pack.featured && <span className="badge">Populaire</span>}
+              <h3>{pack.title}</h3>
+              <p className="price">
+                <span className="from">à partir de</span>
+                <strong>{pack.price}</strong>
+                <span className="unit">{pack.unit}</span>
+              </p>
+              <p>{pack.line}</p>
+              {pack.link && <a className="card-link" href={pack.link.href}>{pack.link.label} <ArrowRight size={16} /></a>}
+            </article>
+          ))}
+        </div>
+        <p className="fine center">Prix en dollars canadiens, avant taxes. Estimation gratuite avant chaque mandat.</p>
       </div>
     </section>
   )
@@ -234,23 +167,21 @@ function Audience() {
   return (
     <section className="section section-dark" id="clientele">
       <div className="wrap">
-        <header className="section-head">
-          <p className="eyebrow">Clientèle</p>
-          <h2>Pensé d’abord pour les agences et les entreprises TI.</h2>
-          <p>
-            Vous avez déjà des clients et des projets en cours ; il vous manque parfois une paire de mains
-            fiable. Je m’intègre à votre façon de travailler, en marque blanche au besoin.
-          </p>
+        <header className="section-head center">
+          <p className="eyebrow">Pour qui</p>
+          <h2>Agences, entreprises et autonomes.</h2>
         </header>
-        <div className="audience-grid">
+        <div className="audience-row">
           {audiences.map((audience) => (
-            <div className="audience" key={audience.title}>
-              <h3>{audience.title}</h3>
-              <p>{audience.offer}</p>
+            <div className="audience-chip" key={audience.title}>
+              <Icon name={audience.icon} size={26} />
+              <span>{audience.title}</span>
             </div>
           ))}
         </div>
-        <a className="btn btn-signal" href="/agences">Voir l’offre de sous-traitance pour agences</a>
+        <div className="center">
+          <a className="btn btn-signal" href="/agences">Offre pour les agences <ArrowRight size={18} /></a>
+        </div>
       </div>
     </section>
   )
@@ -259,51 +190,30 @@ function Audience() {
 function Process() {
   return (
     <section className="section" id="demarche">
-      <div className="wrap process">
-        <header className="section-head">
+      <div className="wrap">
+        <header className="section-head center">
           <p className="eyebrow">Démarche</p>
           <h2>Simple, du premier courriel à la facture.</h2>
         </header>
         <ol className="steps">
           {steps.map((step, index) => (
             <li key={step.title}>
-              <span className="step-number">{String(index + 1).padStart(2, '0')}</span>
+              <span className="step-icon"><Icon name={step.icon} size={26} /><em>{index + 1}</em></span>
               <h3>{step.title}</h3>
               <p>{step.text}</p>
             </li>
           ))}
         </ol>
         <div className="about">
+          <div className="avatar" aria-hidden="true">PC</div>
           <div>
             <p className="eyebrow">Qui est derrière</p>
-            <h3 className="about-title">Philippe Clément, développeur web</h3>
-            <p>
-              Kerouac Technologies, c’est une seule personne, et c’est celle qui fait le travail. Diplômé en
-              développement d’applications web, avec de l’expérience en soutien technique, j’ai aussi géré une équipe
-              en commerce de détail pendant quatre ans : je sais expliquer un problème technique sans jargon
-              et respecter un échéancier.
-            </p>
-            <p className="about-lang">Services offerts en français et en anglais.</p>
-            <ol className="timeline">
-              {background.map((item) => (
-                <li key={item.title}>
-                  <span>{item.years}</span>
-                  <strong>{item.title}</strong>
-                  <em>{item.place}</em>
-                </li>
-              ))}
-            </ol>
+            <h3>Philippe Clément, développeur web</h3>
+            <p>Diplômé en développement d’applications web. Vous parlez directement à la personne qui fait le travail.</p>
           </div>
-          <div className="skill-groups">
-            {skillGroups.map((group) => (
-              <div key={group.title}>
-                <p className="skill-group-title">{group.title}</p>
-                <ul className="skills">
-                  {group.items.map((skill) => <li key={skill}>{skill}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <ul className="skills">
+            {skills.map((skill) => <li key={skill}>{skill}</li>)}
+          </ul>
         </div>
       </div>
     </section>
@@ -333,10 +243,7 @@ function Contact() {
         <div>
           <p className="eyebrow">Contact</p>
           <h2>Parlez-moi de votre projet.</h2>
-          <p>
-            Décrivez votre besoin en quelques lignes. Vous recevez une réponse et une estimation gratuite,
-            habituellement dans un délai d’un jour ouvrable.
-          </p>
+          <p>Réponse et estimation gratuite en un jour ouvrable.</p>
           <p className="contact-direct">
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
             <span>{contact.region}</span>
@@ -360,11 +267,11 @@ function Contact() {
           </label>
           <label>
             Votre besoin
-            <textarea required rows="5" value={form.message} onChange={update('message')} />
+            <textarea required rows="4" value={form.message} onChange={update('message')} />
           </label>
           <button className="btn" type="submit">Envoyer ma demande</button>
           <p className="fine">
-            Le bouton ouvre votre logiciel de courriel avec la demande déjà remplie. Voir la{' '}
+            Ouvre votre logiciel de courriel. Voir la{' '}
             <a href="/confidentialite">politique de confidentialité</a>.
           </p>
         </form>
@@ -415,9 +322,8 @@ export default function App() {
           <>
             <Hero />
             <Services />
-            <Pricing />
-            <Examples />
             <Projects />
+            <Pricing />
             <Audience />
             <Process />
             <Contact />
