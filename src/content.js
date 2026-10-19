@@ -30,11 +30,11 @@ export const projects = [
   },
   {
     title: 'Itsgenygarts',
-    tag: 'Boutique en ligne · crochet fait main',
+    tag: 'Boutique en ligne · admin web et mobile',
     image: '/images/itsgenygarts.webp',
     url: 'https://itsgenygarts.com',
     urlLabel: 'itsgenygarts.com',
-    stack: ['Catalogue', 'Panier', 'Liste de souhaits', 'Sur mesure'],
+    stack: ['React', 'Express', 'Prisma', 'PostgreSQL', 'Stripe', 'Expo'],
     featured: true,
     reverse: true
   },
@@ -51,6 +51,18 @@ export const projects = [
     tag: 'Mandat à contrat',
     mock: 'chart',
     stack: ['FastAPI', 'TimescaleDB', 'WebSocket', 'React']
+  },
+  {
+    title: 'Courriels de prospection automatisés',
+    tag: 'Automatisation · Python',
+    mock: 'flow',
+    stack: ['Python', 'CSV', 'IA', 'Web scraping']
+  },
+  {
+    title: 'Lazy Music',
+    tag: 'Plugin Linux · lecteur de musique',
+    image: '/images/lazy-music.webp',
+    stack: ['Python', 'QML', 'mpv', 'API Subsonic']
   },
   {
     title: 'Plugin Bayan Accordion',

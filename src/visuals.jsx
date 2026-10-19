@@ -72,6 +72,25 @@ function ChartMock() {
   )
 }
 
+function FlowMock() {
+  const stages = ['leads.csv', 'Analyse', 'Brouillon', 'Envoi']
+  return (
+    <div className="mock mock-flow" aria-hidden="true">
+      <div className="mock-bar"><span /><span /><span /></div>
+      <div className="mock-flow-body">
+        <ol className="flow-steps">
+          {stages.map((stage, i) => <li key={stage}><em>{i + 1}</em>{stage}</li>)}
+        </ol>
+        <div className="flow-mail">
+          <b />
+          <i /><i /><i className="short" />
+          <span>✓ brouillons prêts à envoyer</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function WordpressMock() {
   return (
     <div className="mock mock-wp" aria-hidden="true">
@@ -86,7 +105,7 @@ function WordpressMock() {
   )
 }
 
-const mocks = { chart: ChartMock, wordpress: WordpressMock }
+const mocks = { chart: ChartMock, flow: FlowMock, wordpress: WordpressMock }
 
 export function ProjectVisual({ project }) {
   if (project.image) {

@@ -749,6 +749,88 @@ a {
   background: var(--navy);
 }
 
+.mock-flow-body {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: 18px;
+}
+
+.flow-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.flow-steps li {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 10px 4px;
+  border-radius: 10px;
+  background: var(--surface);
+  font: 500 0.72rem var(--font-mono);
+  color: var(--ink);
+  text-align: center;
+}
+
+.flow-steps li + li::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  background: var(--signal-ink);
+}
+
+.flow-steps em {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--signal);
+  font-style: normal;
+}
+
+.flow-mail {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.flow-mail b {
+  height: 8px;
+  width: 45%;
+  border-radius: 3px;
+  background: var(--ink);
+}
+
+.flow-mail i {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+}
+
+.flow-mail i.short {
+  width: 60%;
+}
+
+.flow-mail span {
+  margin-top: 4px;
+  font: 500 0.75rem var(--font-mono);
+  color: var(--signal-ink);
+}
+
 .mock-chart .mock-bar {
   background: var(--navy-2);
 }
