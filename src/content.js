@@ -6,7 +6,7 @@ export const contact = {
 
 export const promises = [
   { icon: 'person', text: 'Un interlocuteur unique' },
-  { icon: 'clock', text: 'Réponse en un jour ouvrable' },
+  { icon: 'estimate', text: 'Estimation gratuite' },
   { icon: 'remote', text: 'Partout au Québec, à distance' }
 ]
 

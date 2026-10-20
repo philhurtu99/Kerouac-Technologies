@@ -139,7 +139,7 @@ export default function Agences() {
         <div className="wrap cta-inner">
           <div>
             <h2>Un billet qui traîne ?</h2>
-            <p>Estimation en un jour ouvrable.</p>
+            <p>Envoyez-le-moi pour une estimation gratuite.</p>
           </div>
           <a className="btn btn-signal" href={mailto}>{contact.email}</a>
         </div>

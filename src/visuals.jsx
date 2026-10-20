@@ -77,8 +77,8 @@ export function HeroVisual() {
         <div><span className="ok">✓</span> rapport automatisé</div>
       </div>
       <div className="hv-badge">
-        <strong>1 jour</strong>
-        <span>pour une estimation</span>
+        <strong>Gratuite</strong>
+        <span>l’estimation</span>
       </div>
     </div>
   )

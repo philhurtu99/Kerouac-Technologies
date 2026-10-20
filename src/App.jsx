@@ -269,7 +269,7 @@ function Contact() {
         <div>
           <p className="eyebrow">Contact</p>
           <h2>Parlez-moi de votre projet.</h2>
-          <p>Réponse et estimation gratuite en un jour ouvrable.</p>
+          <p>Décrivez votre besoin, je vous réponds avec une estimation gratuite.</p>
           <p className="contact-direct">
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
             <span>{contact.region}</span>
