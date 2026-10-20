@@ -185,7 +185,7 @@ function About() {
     <section className="section section-alt" id="a-propos">
       <div className="wrap">
         <div className="about">
-          <div className="avatar" aria-hidden="true">PC</div>
+          <img className="avatar" src="/images/philippe.webp" alt="Philippe Clément" width="160" height="160" />
           <div>
             <p className="eyebrow">À propos</p>
             <h2>{about.title}</h2>

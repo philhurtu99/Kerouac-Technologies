@@ -44,7 +44,7 @@ export const projects = [
   },
   {
     title: 'Données financières en temps réel',
-    context: 'Mandat à contrat',
+    context: 'Mandat client',
     summary: 'Plateforme qui collecte des données boursières, calcule des indicateurs et les affiche en direct.',
     value: 'Centraliser et visualiser des informations complexes.',
     image: '/images/trading-platform.webp',
@@ -62,7 +62,7 @@ export const projects = [
   },
   {
     title: 'Itsgenygarts',
-    context: 'Boutique en ligne en production',
+    context: 'Mandat client · boutique en ligne',
     image: '/images/itsgenygarts.webp',
     url: 'https://itsgenygarts.com',
     urlLabel: 'itsgenygarts.com',
@@ -70,7 +70,7 @@ export const projects = [
   },
   {
     title: 'Spectre Entertainment',
-    context: 'Boutique WordPress',
+    context: 'Mandat client · boutique WordPress',
     image: '/images/spectre.webp',
     url: 'https://boutique.spectre-entertainment.com',
     urlLabel: 'boutique.spectre-entertainment.com',
