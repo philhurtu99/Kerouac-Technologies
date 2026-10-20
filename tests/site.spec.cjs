@@ -4,8 +4,8 @@ test('home page presents the offer in French', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveTitle(/Kerouac Technologies/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr-CA')
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Renfort informatique')
-  for (const id of ['services', 'realisations', 'tarifs', 'clientele', 'demarche', 'contact']) {
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Des solutions informatiques')
+  for (const id of ['services', 'realisations', 'besoins', 'a-propos', 'tarifs', 'contact']) {
     await expect(page.locator(`#${id}`)).toBeVisible()
   }
 })
