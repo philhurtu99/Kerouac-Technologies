@@ -32,24 +32,7 @@ export const packages = [
 
 // Les trois premiers projets sont mis en vedette.
 export const projects = [
-  {
-    title: 'MonPetitUber',
-    context: 'Projet scolaire · en équipe',
-    summary: 'Application de commande et de livraison pour une école : catalogue, paiements, employés, inventaire et promotions.',
-    value: 'Un outil sur mesure pour un processus d’entreprise.',
-    image: '/images/monpetituber.webp',
-    url: 'https://monpetituber.app',
-    urlLabel: 'monpetituber.app',
-    stack: ['React', 'TypeScript', 'Express', 'Prisma', 'PostgreSQL', 'Stripe']
-  },
-  {
-    title: 'Données financières en temps réel',
-    context: 'Mandat client',
-    summary: 'Plateforme qui collecte des données boursières, calcule des indicateurs et les affiche en direct.',
-    value: 'Centraliser et visualiser des informations complexes.',
-    image: '/images/trading-platform.webp',
-    stack: ['FastAPI', 'TimescaleDB', 'WebSocket', 'React', 'TypeScript']
-  },
+
   {
     title: 'Kerouac Productions',
     context: 'Ma propre entreprise',
@@ -59,6 +42,23 @@ export const projects = [
     url: 'https://kerouacproductions.studio',
     urlLabel: 'kerouacproductions.studio',
     stack: ['React', 'Express', 'PostgreSQL', 'Stripe', 'Docker']
+  },
+  {
+    title: 'Données financières en temps réel',
+    context: 'Mandat client',
+    summary: 'Plateforme qui collecte des données boursières, calcule des indicateurs et les affiche en direct.',
+    value: 'Centraliser et visualiser des informations complexes.',
+    image: '/images/trading-platform.webp',
+    stack: ['FastAPI', 'TimescaleDB', 'WebSocket', 'React', 'TypeScript']
+  },  {
+    title: 'MonPetitUber',
+    context: 'Projet scolaire · en équipe',
+    summary: 'Application de commande et de livraison pour une école : catalogue, paiements, employés, inventaire et promotions.',
+    value: 'Un outil sur mesure pour un processus d’entreprise.',
+    image: '/images/monpetituber.webp',
+    url: 'https://monpetituber.app',
+    urlLabel: 'monpetituber.app',
+    stack: ['React', 'TypeScript', 'Express', 'Prisma', 'PostgreSQL', 'Stripe']
   },
   {
     title: 'Itsgenygarts',
