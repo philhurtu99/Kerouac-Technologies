@@ -9,7 +9,7 @@ const nav = [
   { href: '/#services', label: 'Services' },
   { href: '/#realisations', label: 'Réalisations' },
   { href: '/#a-propos', label: 'À propos' },
-  { href: '/#tarifs', label: 'Tarifs' },
+  { href: '/#formules', label: 'Formules' },
   { href: '/agences', label: 'Agences' },
   { href: '/#contact', label: 'Contact' }
 ]
@@ -219,28 +219,23 @@ function About() {
 
 function Pricing() {
   return (
-    <section className="section" id="tarifs">
+    <section className="section" id="formules">
       <div className="wrap">
         <header className="section-head center">
-          <p className="eyebrow">Tarifs</p>
-          <h2>Un prix fixe quand le besoin est clair.</h2>
+          <p className="eyebrow">Formules</p>
+          <h2>Une formule pour chaque besoin.</h2>
         </header>
         <div className="package-grid">
           {packages.map((pack) => (
             <article className={pack.featured ? 'card package featured' : 'card package'} key={pack.title}>
               {pack.featured && <span className="badge">Populaire</span>}
               <h3>{pack.title}</h3>
-              <p className="price">
-                <span className="from">à partir de</span>
-                <strong>{pack.price}</strong>
-                <span className="unit">{pack.unit}</span>
-              </p>
               <p>{pack.line}</p>
               {pack.link && <a className="card-link" href={pack.link.href}>{pack.link.label} <ArrowRight size={16} /></a>}
             </article>
           ))}
         </div>
-        <p className="fine center">Prix en dollars canadiens, avant taxes. Estimation gratuite, et le prix est convenu avant de commencer.</p>
+        <p className="fine center">Tarifs sur demande. Estimation gratuite, et le prix est convenu avant de commencer.</p>
       </div>
     </section>
   )
@@ -318,7 +313,7 @@ function Footer() {
         <nav aria-label="Pied de page">
           <a href="/#services">Services</a>
           <a href="/#realisations">Réalisations</a>
-          <a href="/#tarifs">Tarifs</a>
+          <a href="/#formules">Formules</a>
           <a href="/agences">Agences</a>
           <a href="/#contact">Contact</a>
         </nav>

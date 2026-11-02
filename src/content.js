@@ -24,10 +24,10 @@ export const services = [
 ]
 
 export const packages = [
-  { title: 'Dépannage', price: '300 $', unit: 'prix fixe', line: 'Un problème réglé à distance.' },
-  { title: 'Automatisation', price: '600 $', unit: 'prix fixe', line: 'Par exemple, un rapport Excel généré en PDF, script livré.', featured: true },
-  { title: 'Maintenance', price: '250 $', unit: 'par mois', line: 'Mises à jour, sauvegardes et assistance.' },
-  { title: 'À l’heure', price: '45 $', unit: 'de l’heure', line: 'Pour la sous-traitance et les besoins à préciser.', link: { href: '/agences', label: 'Offre agences' } }
+  { title: 'Dépannage', line: 'Un problème réglé à distance.' },
+  { title: 'Automatisation', line: 'Par exemple, un rapport Excel généré en PDF, script livré.', featured: true },
+  { title: 'Maintenance', line: 'Mises à jour, sauvegardes et assistance.' },
+  { title: 'À l’heure', line: 'Pour la sous-traitance et les besoins à préciser.', link: { href: '/agences', label: 'Offre agences' } }
 ]
 
 // Les trois premiers projets sont mis en vedette.
