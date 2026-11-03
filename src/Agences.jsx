@@ -20,9 +20,9 @@ const guarantees = [
 ]
 
 const plans = [
-  { title: 'Ponctuel', price: '55 $', unit: 'de l’heure', text: 'Sans engagement.' },
-  { title: 'Banque de 10 h', price: '500 $', unit: 'soit 50 $/h', text: 'Valide six mois.', featured: true },
-  { title: 'Banque de 20 h', price: '900 $', unit: 'soit 45 $/h', text: 'Priorité sur vos demandes.' }
+  { title: 'Ponctuel', text: 'Sans engagement.' },
+  { title: 'Banque de 10 h', text: 'Valide six mois.', featured: true },
+  { title: 'Banque de 20 h', text: 'Priorité sur vos demandes.' }
 ]
 
 const faq = [
@@ -99,22 +99,18 @@ export default function Agences() {
         <div className="wrap">
           <header className="section-head center">
             <p className="eyebrow">Formules</p>
-            <h2>Plus d’heures, meilleur taux.</h2>
+            <h2>Des heures selon vos besoins.</h2>
           </header>
           <div className="plan-grid">
             {plans.map((plan) => (
               <article className={plan.featured ? 'card package featured' : 'card package'} key={plan.title}>
                 {plan.featured && <span className="badge">Populaire</span>}
                 <h3>{plan.title}</h3>
-                <p className="price">
-                  <strong>{plan.price}</strong>
-                  <span className="unit">{plan.unit}</span>
-                </p>
                 <p>{plan.text}</p>
               </article>
             ))}
           </div>
-          <p className="fine center">Prix en dollars canadiens, avant taxes.</p>
+          <p className="fine center">Tarifs sur demande. Estimation gratuite.</p>
         </div>
       </section>
 

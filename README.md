@@ -15,7 +15,7 @@ npm run build
 npm run test:e2e   # tests Playwright, ordinateur et mobile
 ```
 
-Tout le texte du site (services, tarifs, exemples, clientèle, courriel de contact)
+Tout le texte du site (services, formules, exemples, clientèle, courriel de contact)
 est dans [`src/content.js`](./src/content.js).
 
 ## Déploiement

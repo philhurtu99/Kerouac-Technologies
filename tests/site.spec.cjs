@@ -5,7 +5,7 @@ test('home page presents the offer in French', async ({ page }) => {
   await expect(page).toHaveTitle(/Kerouac Technologies/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr-CA')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Des solutions informatiques')
-  for (const id of ['services', 'realisations', 'besoins', 'a-propos', 'tarifs', 'contact']) {
+  for (const id of ['services', 'realisations', 'besoins', 'a-propos', 'formules', 'contact']) {
     await expect(page.locator(`#${id}`)).toBeVisible()
   }
 })
@@ -44,7 +44,8 @@ test('agency page presents subcontracting plans', async ({ page }) => {
   await page.goto('/agences')
   await expect(page).toHaveTitle(/Sous-traitance pour agences/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Un développeur de plus')
-  await expect(page.locator('#formules')).toContainText('900 $')
+  await expect(page.locator('#formules')).toContainText('Banque de 20 h')
+  await expect(page.locator('body')).not.toContainText('$')
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
   expect(overflow).toBeLessThanOrEqual(0)
 })
