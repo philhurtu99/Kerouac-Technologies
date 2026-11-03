@@ -44,13 +44,24 @@ export const projects = [
     stack: ['React', 'Express', 'PostgreSQL', 'Stripe', 'Docker']
   },
   {
+    title: 'Itsgenygarts',
+    context: 'Mandat client · boutique en ligne',
+    summary: 'Boutique en ligne d’articles en crochet faits main : catalogue, paiements Stripe et application mobile, hébergée sur mon serveur.',
+    value: 'Un client accompagné du développement jusqu’à l’hébergement.',
+    image: '/images/itsgenygarts.webp',
+    url: 'https://itsgenygarts.com',
+    urlLabel: 'itsgenygarts.com',
+    stack: ['React', 'Express', 'Prisma', 'Stripe', 'Expo']
+  },
+  {
     title: 'Données financières en temps réel',
     context: 'Mandat client',
     summary: 'Plateforme qui collecte des données boursières, calcule des indicateurs et les affiche en direct.',
     value: 'Centraliser et visualiser des informations complexes.',
     image: '/images/trading-platform.webp',
     stack: ['FastAPI', 'TimescaleDB', 'WebSocket', 'React', 'TypeScript']
-  },  {
+  },
+  {
     title: 'MonPetitUber',
     context: 'Projet scolaire · en équipe',
     summary: 'Application de commande et de livraison pour une école : catalogue, paiements, employés, inventaire et promotions.',
@@ -59,14 +70,6 @@ export const projects = [
     url: 'https://monpetituber.app',
     urlLabel: 'monpetituber.app',
     stack: ['React', 'TypeScript', 'Express', 'Prisma', 'PostgreSQL', 'Stripe']
-  },
-  {
-    title: 'Itsgenygarts',
-    context: 'Mandat client · boutique en ligne',
-    image: '/images/itsgenygarts.webp',
-    url: 'https://itsgenygarts.com',
-    urlLabel: 'itsgenygarts.com',
-    stack: ['React', 'Express', 'Prisma', 'Stripe', 'Expo']
   },
   {
     title: 'Spectre Entertainment',
